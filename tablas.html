@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilosProducto.css">
+    <link rel="stylesheet" href="css/img-tablas.css">
+    <title>Tablas</title>
+</head>
+<body>
+    <a href="" class="btn-volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+      </svg>
+    </a>
+    <div class="cards">
+        <div class="card-container">
+            <header class="card-header">
+                <div class="producto-imagen" id="img1"></div>
+            </header>
+    
+            <section class="about-section">
+                <div class="titulo">
+                    <span class="nombre">Chica Helga</span>
+                    <span class="precio">$200</span>
+                </div>
+                <span class="descripcion">milanesa, queso, aceitunas, salame, pickles y cazuela de salchichas</span>
+                <div class="sumador">
+                    <a id="btnMenos" class="btn-contador"> - </a>
+                    <p> 1 </p>
+                    <a id="btnMas" class="btn-contador"> + </a>
+                </div>
+                <a class="agregar-btn-modal" id="tamaño">Agregar</a>
+            </section>
+        </div><!-- fin card-container -->
+        <div class="card-container">
+            <header class="card-header">
+                <div class="producto-imagen" id="img2"></div>
+            </header>
+    
+            <section class="about-section">
+                <div class="titulo">
+                    <span class="nombre">Gran interminable Helga</span>
+                    <span class="precio">$200</span>
+                </div>
+                <span class="descripcion">tabla chica, papas de copetin, maní, palitos, jamón crudo y cocido, queso barra, aceitunas y maní</span>
+                <div class="sumador">
+                    <a id="btnMenos" class="btn-contador"> - </a>
+                    <p> 1 </p>
+                    <a id="btnMas" class="btn-contador"> + </a>
+                </div>
+                <a class="agregar-btn-modal" id="tamaño">Agregar</a>
+            </section>
+        </div><!-- fin card-container -->
+    </div> <!-- fin cards -->
+
+    <div class="modal" id="modal">
+        <div class="opciones">
+            <label class="rad-label">
+                <input type="radio" class="rad-input" name="rad">
+                <div class="rad-design"></div>
+                <div class="rad-text">2 Personas</div>
+              </label>
+
+              <label class="rad-label">
+                <input type="radio" class="rad-input" name="rad">
+                <div class="rad-design"></div>
+                <div class="rad-text">4 Personas</div>
+              </label>
+
+            <a class="agregar-btn">Agregar</a>
+        </div>
+        <div class="btn-cerrar" id="btnCerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+            </svg>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/volverAtras.js"></script>
+    <script src="js/modalTablas.js"></script>
+</body>
+</html>

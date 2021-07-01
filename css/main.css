@@ -1,0 +1,694 @@
+/* GLOBALES */
+:root {
+    --colorPrincipal: rgb(27, 51, 35);
+    --colorSecundario:rgb(199, 161, 6);
+    --blanco: #fff;
+    --gris: rgb(221, 221, 221);
+    --negro: #000;
+    --borderRadius: 20px;
+}
+
+.categoria:nth-child(1) {background-image: url(../img/categoria-hamburguesas.jpg);}
+.categoria:nth-child(2) {background-image: url(../img/categoria-lomitos.jpg);}
+.categoria:nth-child(3) {background-image: url(../img/categoria-sandwiches.jpg);}
+.categoria:nth-child(4) {background-image: url(../img/categoria-menu-fijo.jpg);}
+.categoria:nth-child(5) {background-image: url(../img/categoria-pizza.jpg);}
+.categoria:nth-child(6) {background-image: url(../img/hamburguesa.jpg);}
+.categoria:nth-child(7) {background-image: url(../img/hamburguesa.jpg);}
+.categoria:nth-child(8) {background-image: url(../img/categoria-picoteo.jpg);}
+.categoria:nth-child(9) {background-image: url(../img/categoria-bebidas.jpg);}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    background: rgb(7, 13, 9);
+    user-select: none;
+}
+
+.logo img {
+    top: -15px;
+    width: 100px;
+    z-index: 9999;
+    position: absolute;
+}
+.main {
+    width: 100%;
+    margin-top: -49px;
+    position: relative;
+}
+
+.main .banner-principal {
+    width: 100%;
+    position: relative;
+}
+
+.texto-banner {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    transform: translate(55%, -300%);
+    text-align: center;
+    padding: 15px;
+    animation: fadeIn 5s;
+}
+
+.texto-banner a {
+    text-decoration: none;
+}
+
+.texto-banner .arma-pedido {
+    background: var(--colorPrincipal);
+    color: var(--blanco);
+    border-radius: 1.5rem;
+    padding: 10px 10px;
+    transition: 500ms ease all;
+}
+
+.texto-banner .arma-pedido:hover {
+    color: var(--colorPrincipal);
+    background: var(--blanco);
+}
+
+.texto-banner .ver-menu {
+    color: var(--gris);
+    padding: 8px 20px;
+    margin-top: 15px;
+    transition: 500ms ease all;
+}
+
+.texto-banner .ver-menu:hover {
+    color: var(--blanco);
+
+}
+
+.banner {
+    width: 100%;
+    background-image: url(../img/banner-mobile.jpg);
+    height: 107vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: blur 3s;
+    animation-fill-mode: forwards;
+    animation-delay: .5s;
+}
+
+.svg-menu {
+    margin-top: 2.5rem;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.svg-menu svg{
+    fill: white;
+}
+
+.menu-movil {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 10rem;
+    padding: 5px 18px;
+    background:var(--colorSecundario);
+    color: #444444;
+    position: fixed;
+    top: 0;
+    left: -90%;
+    z-index: 10000;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+
+.menu-movil a {
+    color: var(--colorPrincipal);
+    text-decoration: none;
+    line-height: 3rem;
+    margin: auto 2rem;
+    margin-left: -.5rem;
+    transition: .5s ease all;
+    border-radius: 15px;
+    padding-left: 1rem;
+}
+
+.menu-movil a:hover {
+    /* background: var(--colorPrincipal); */
+    color: var(--blanco);
+}
+
+.svg-menu svg:hover{
+    cursor: pointer;
+    fill: var(--colorPrincipal);
+}
+
+.titulo-seccion {
+    margin-top: 5em;
+    margin-bottom: 5em;
+    font-size: 24px;
+    color: var(--blanco);
+
+}
+
+.promociones {
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
+}
+
+.promocion {
+    height: 150px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.categorias {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorias-generales {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria {
+    background-size: cover;
+    max-width: 35ch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 5%;
+    transition: transform 500ms ease;
+}
+
+.contenido-categoria {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(20 0% 0% / 0.3) 10%,
+        hsl(0 0% 0% / 1)
+    );
+    transform: translateY(65%);
+    transition: transform 500ms ease;
+    transition-delay: 500ms;
+}
+
+.categoria:hover {
+    transform: scale(1.05);
+}
+
+.contenido-categoria > *:not(.nombre-categoria) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+    transition-delay: 1000ms;
+}
+
+.categoria:hover .contenido-categoria {
+    transform: translateY(0);
+    transition-delay: 500ms;
+
+}
+
+.categoria:hover .contenido-categoria > * {
+    opacity: 1;
+}
+
+.nombre-categoria {
+    color: white;
+    position: relative;
+    width: max-content;
+    margin-bottom: 15px;
+}
+
+.nombre-categoria::after {
+    content:'';
+    position: absolute;
+    height: 3px;
+    left: calc(var(--padding) * -1);
+    bottom: -2px;
+    width: calc(100% + var(--padding));
+    background: var(--colorPrincipal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease
+}
+
+.categoria:hover .nombre-categoria::after {
+    transform: scaleX(1);
+}
+
+.cuerpo {
+    color: rgb(255 255 255 / 0.85);
+    margin-bottom: 15px;
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--blanco);
+    background-color: var(--colorPrincipal);
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.25rem;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--blanco);
+    color: var(--colorPrincipal);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+/* SECCION MENU */
+
+.menu .titulo-seccion {
+    margin-top: 3em;
+    margin-bottom: 20px;
+    background: linear-gradient(140deg, rgb(7, 13, 9) 20%, rgba(199, 161, 6, .2) 60%);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.main .titulo-seccion-menu {
+    margin-top: 3em;
+    margin-bottom: 20px;
+    background: none;
+}
+
+.menu .titulo-seccion-h3 {
+    font-size: 24px;
+    color: var(--blanco);
+    margin-top: 3em;
+    margin-bottom: 20px;
+}
+
+.container-hamburguesa,
+.container-lomitos,
+.container-carlitos,
+.container-sandwiches,
+.container-torpedos,
+.container-frankfurt,
+.container-menu-fijo,
+.container-pizzas,
+.container-pizzanezas,
+.container-tablas,
+.container-picoteo {
+    display: grid;
+    color: var(--blanco);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.container-pizzanezas,
+.container-picoteo,
+.container-bebidas,
+.container-cervezas {
+    display: grid;
+    color: var(--blanco);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.producto {
+    background: linear-gradient(140deg, rgb(7, 13, 9) 10%, rgba(27, 51, 35, .4) 100%);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+}
+
+.producto h2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.producto h2 span {
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+/* FOOTER */
+
+.footer {
+    display: grid;
+    place-items: center;
+    grid-template-rows: repeat(3, 1fr );
+    background: var(--colorSecundario);
+    color: var(--blanco);
+    margin-top: 50px;  
+    position: relative; 
+}
+
+.info {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+.info  p:nth-child(2) {
+    margin-bottom: 50px;
+}
+
+.logo2 img {
+    width: 140px;
+    height: 140px;
+}
+
+.redes a {
+    margin: 50px;
+}
+
+.redes a svg{
+    fill: var(--blanco);
+    width: 30px;
+    height: 30px;
+    margin-bottom: 150px;
+    margin-top: 50px;
+}
+
+.redes a svg:hover{
+    fill: var(--colorPrincipal);
+    width: 30px;
+    height: 30px;
+    transition: 1s ease all;
+}
+
+/* BOTON FIXED PEDIR */
+
+.pedir {
+    position: absolute;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    z-index: 999999;
+}
+
+.pedir a svg {
+    height: 50px;
+    width: 50px;
+    fill: #42BEA4;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+
+.modal-pedido {
+    width: 90%;
+    height: 400px;
+    background: white;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 9999999999;
+    display: none;
+    animation: fadeIn 1s;
+    justify-content: center;
+}
+
+.botones-cerrar-min{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.agregar-btn {
+    color: var(--blanco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorPrincipal);
+    border-radius: 20px;
+    height: 40px;
+    transition: .5s ease all;
+    margin-top: 5px;
+    width: 80%;
+}
+
+#minimizar {
+    margin-right: 20px;
+}
+
+.boton-finalizar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+textarea {
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    max-width: 90%;
+    min-width: 90%;
+    max-height: 200px;
+    min-height: 200px;
+}
+
+textarea::-webkit-scrollbar {
+    width: 2px;               /* ancho del scrollbar entero */
+  }
+  
+  textarea::-webkit-scrollbar-track {
+    background: transparent;        /* color del area de trackinga */
+  }
+  
+  textarea::-webkit-scrollbar-thumb {
+    background-color: var(--colorPrincipal);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    /* border: 3px solid orange;  */ /* creates padding around scroll thumb */
+  }
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:768px) {
+    .logo img {
+        width: 100px;
+        z-index: 999;
+        position: absolute;
+        top: -15px;
+    }
+
+    .texto-banner {
+        display: inline-block;
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .texto-banner a {
+        text-decoration: none;
+    }
+
+    .categorias-generales {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-hamburguesa {
+        display: grid;
+        color: var(--blanco);
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+    }
+
+    .container-hamburguesa .producto:nth-child(9),
+    .container-hamburguesa .producto:nth-child(10) {
+        grid-row: 3;
+    }
+
+    .container-hamburguesa .producto:nth-child(9) {
+        grid-column: span 2;
+}
+
+    .container-hamburguesa .producto:nth-child(10) {
+        grid-column: span 2;
+    }
+
+    .container-lomitos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .container-lomitos .producto:nth-child(4) {
+        grid-row: 2;
+    }
+    .container-lomitos .producto:nth-child(5) {
+        grid-column: span 2;
+    }
+    .container-sandwiches {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .container-carlitos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .container-torpedos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .container-torpedos .producto:nth-child(5) {
+        grid-column: span 2;
+    }
+    .container-menu-fijo {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .container-pizzanezas,
+    .container-pizzas {
+        display: grid;
+        color: var(--blanco);
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+    }
+
+    .container-picoteo {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .container-bebidas {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .container-cervezas {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .container-cervezas .producto:nth-child(1) {
+        grid-column: span 3;
+    }
+    .container-cervezas .producto:nth-child(2) {
+        grid-column: span 3;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .banner {
+        background-image: url(../img/banner-desktop.jpg);
+    }
+
+    .menu-movil {
+        display: none;
+    }
+
+    .svg-menu {
+        display: none;
+    }
+
+    .header-fixer {
+        height: 10px;/* .1px */
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .header {
+        width: 100%;
+        min-height: 68px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        background: transparent;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 100;
+        transition: all .4s ease;
+    }
+    
+    .navbar a {
+        text-decoration: none;
+        color: var(--gris);
+        padding: 10px;
+        transition: 500ms ease all;
+    }
+
+    .navbar a:hover {
+        color: var(--blanco);
+    }
+
+    .navbar a:nth-child(3) {
+        text-decoration: none;
+        color: var(--blanco);
+        background: var(--colorPrincipal);
+        border-radius: 2rem;
+        padding: 8px 20px;
+        transition: 500ms ease all;
+    }
+    .navbar a:nth-child(3):hover {
+        background: #fff;
+        color: var(--colorPrimario);
+    }
+    
+    nav {
+        margin-right: 20px;
+    }
+
+    .categorias-generales {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;  
+    }
+
+    100% {
+        opacity: 1; 
+    }
+}
+
+@keyframes blur{
+    0% {
+        filter: blur(0);
+    }
+
+    50% {
+        filter: blur(5px);
+    }
+    100% {
+        filter: blur(5px);
+    }
+}
+
